@@ -53,10 +53,10 @@ public class CustomListTest {
     }
 
     /**
-     *
-     *
-     *
-     *
+     * makes a new city list
+     * makes a new city
+     * adds the city to list
+     * checks if the list contains city
      */
     @Test
     public void hasCityTest(){
@@ -64,6 +64,17 @@ public class CustomListTest {
         City city = new City("Estevan", "SK");
         list.addCity(city);
         assertTrue(list.hasCity(city));
+    }
+
+    @Test
+    public void countCityTest(){
+        list = MockCityList();
+        assertEquals(1, list.getCount()); // should return 1 expected
+        City city2 = new City("Bangkok", "Thailand");
+        list.add(city2);
+        assertEquals(2, list.getCount()); // should return 2 expected
+        list.removeCity(city2);
+        assertEquals(1, list.getCount()); // should return 1 expected
     }
 
 }
